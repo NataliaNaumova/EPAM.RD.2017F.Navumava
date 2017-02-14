@@ -1,0 +1,7 @@
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\bin\Debug\UserServiceApplication.exe
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\bin\Debug\UserServiceApplication.pdb
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\bin\Debug\UserServiceLibrary.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\bin\Debug\UserServiceLibrary.pdb
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\obj\Debug\UserServiceApplication.csprojResolveAssemblyReference.cache
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\obj\Debug\UserServiceApplication.exe
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceApplication\obj\Debug\UserServiceApplication.pdb
