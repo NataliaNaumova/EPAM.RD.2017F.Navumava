@@ -1,0 +1,8 @@
+C:\Users\Natalia\Desktop\UserService\Logger\bin\Debug\NLog.config
+C:\Users\Natalia\Desktop\UserService\Logger\bin\Debug\Logger.dll
+C:\Users\Natalia\Desktop\UserService\Logger\bin\Debug\Logger.pdb
+C:\Users\Natalia\Desktop\UserService\Logger\bin\Debug\NLog.dll
+C:\Users\Natalia\Desktop\UserService\Logger\bin\Debug\NLog.xml
+C:\Users\Natalia\Desktop\UserService\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Users\Natalia\Desktop\UserService\Logger\obj\Debug\Logger.dll
+C:\Users\Natalia\Desktop\UserService\Logger\obj\Debug\Logger.pdb

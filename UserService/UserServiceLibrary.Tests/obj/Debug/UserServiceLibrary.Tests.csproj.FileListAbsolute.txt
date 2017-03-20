@@ -1,0 +1,12 @@
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\UserServiceLibrary.Tests.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\UserServiceLibrary.Tests.pdb
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\Castle.Core.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\Moq.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\UserServiceLibrary.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\UserServiceLibrary.pdb
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\Castle.Core.xml
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\bin\Debug\Moq.xml
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\obj\Debug\UserServiceLibrary.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\obj\Debug\UserServiceLibrary.Tests.dll
+C:\Users\Natalia\Desktop\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\obj\Debug\UserServiceLibrary.Tests.pdb
+C:\Users\ASUS\Source\Repos\EPAM.RD.2017F.Navumava\Day1\UserService\UserServiceLibrary.Tests\obj\Debug\UserServiceLibrary.Tests.csprojResolveAssemblyReference.cache
