@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ using UserServiceLibrary.Interfaces;
 
 namespace UserServiceLibrary
 {
-    public class UserServiceManager
+    public class UserServiceManager 
     {
         #region Fields
 
@@ -21,6 +22,26 @@ namespace UserServiceLibrary
 
         private IUserService _master;
         private ICollection<IUserService> _slaves;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the master user service instance.
+        /// </summary>
+        public IUserService Master
+        {
+            get { return _master; }
+        }
+
+        /// <summary>
+        /// Gets the collection of slave service instances.
+        /// </summary>
+        public ICollection<IUserService> Slaves
+        {
+            get { return _slaves; }
+        }
 
         #endregion
 
@@ -35,37 +56,7 @@ namespace UserServiceLibrary
         {
         }
 
-        public UserServiceManager(IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(null, null, userServiceStorageSerializer, null)
-        {
-        }
 
-        public UserServiceManager(ILogger logger,
-            IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(logger, null, userServiceStorageSerializer, null)
-        {
-        }
-        public UserServiceManager(IUserValidator userValidator) 
-            : this(null, userValidator, null, null)
-        {
-        }
-
-        public UserServiceManager(IUserValidator userValidator,
-            IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(null, userValidator, userServiceStorageSerializer, null)
-        {
-        }
-
-        public UserServiceManager(ILogger logger, IUserValidator userValidator)
-            : this(logger, userValidator, null, null)
-        {
-        }
-
-        public UserServiceManager(ILogger logger, IUserValidator userValidator,
-            IUserServiceStorageSerializer userServiceStorageSerializer)
-            : this(logger, userValidator, userServiceStorageSerializer, null)
-        {
-        }
 
         public UserServiceManager(ILogger logger,
             Func<int, int> idGenerator, int seed = 0)
@@ -73,18 +64,7 @@ namespace UserServiceLibrary
         {
         }
 
-        public UserServiceManager(ILogger logger,
-            IUserServiceStorageSerializer userServiceStorageSerializer,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(logger, null, userServiceStorageSerializer, idGenerator, seed)
-        {
-        }
 
-        public UserServiceManager(IUserValidator userValidator,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(null, userValidator, null, idGenerator, seed)
-        {
-        }
 
         public UserServiceManager(IUserValidator userValidator,
             IUserServiceStorageSerializer userServiceStorageSerializer,
@@ -93,16 +73,6 @@ namespace UserServiceLibrary
         {
         }
 
-        public UserServiceManager(Func<int, int> idGenerator, int seed = 0)
-            : this(null, null, null, idGenerator, seed)
-        {
-        }
-
-        public UserServiceManager(IUserServiceStorageSerializer userServiceStorageSerializer,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(null, null, userServiceStorageSerializer, idGenerator, seed)
-        {
-        }
 
         public UserServiceManager(ILogger logger, IUserValidator userValidator,
             IUserServiceStorageSerializer userServiceStorageSerializer, Func<int, int> idGenerator,
@@ -168,15 +138,15 @@ namespace UserServiceLibrary
             AppDomainSetup appDomainSetup = new AppDomainSetup
             {
                 ApplicationBase = AppDomain.CurrentDomain.BaseDirectory,
-                PrivateBinPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Master")
+                PrivateBinPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Slave")
             };
 
             AppDomain slaveDomain = AppDomain.CreateDomain
-                ("Master", null, appDomainSetup);
+                ("Slave", null, appDomainSetup);
 
             _slavesDomains.Add(slaveDomain);
 
-            IUserService slave = (UserService)_masterDomain.CreateInstanceAndUnwrap
+            IUserService slave = (UserService)slaveDomain.CreateInstanceAndUnwrap
                 (Assembly.GetExecutingAssembly().FullName, typeof(UserService).FullName,
                     false, BindingFlags.CreateInstance, null, new object[]
                     {

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<UserServiceStorage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UserCollection>
+    <User>
+      <Id>1</Id>
+      <FirstName>Ivan</FirstName>
+      <LastName>Ivanov</LastName>
+      <Age>18</Age>
+    </User>
+    <User>
+      <Id>2</Id>
+      <FirstName>Petr</FirstName>
+      <LastName>Petrov</LastName>
+      <Age>21</Age>
+    </User>
+    <User>
+      <Id>3</Id>
+      <FirstName>Anton</FirstName>
+      <LastName>Antonov</LastName>
+      <Age>54</Age>
+    </User>
+  </UserCollection>
+  <CurrentId>3</CurrentId>
+</UserServiceStorage>

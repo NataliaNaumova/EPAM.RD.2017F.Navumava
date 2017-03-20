@@ -8,7 +8,7 @@ namespace UserServiceLibrary.Tests
     [TestClass]
     public class UserStorageSerializerTest
     {
-        [TestMethod]
+     /*   [TestMethod]
         public void Serialize_XmlFile()
         {
             ICollection<User> users = new List<User>
@@ -19,6 +19,6 @@ namespace UserServiceLibrary.Tests
             };
             var userStorageSerializer = new UserServiceStorageSerializer();
             userStorageSerializer.Serialize(users);
-        }
+        }*/
     }
 }

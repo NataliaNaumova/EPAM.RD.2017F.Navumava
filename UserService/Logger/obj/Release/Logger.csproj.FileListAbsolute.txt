@@ -1,0 +1,10 @@
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\NLog.config
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\Logger.dll
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\Logger.pdb
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\NLog.dll
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\System.Net.Http.dll
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\NLog.xml
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\System.Net.Http.xml
+C:\Users\ASUS\Desktop\UserService\Logger\bin\Release\ru\System.Net.Http.resources.dll
+C:\Users\ASUS\Desktop\UserService\Logger\obj\Release\Logger.dll
+C:\Users\ASUS\Desktop\UserService\Logger\obj\Release\Logger.pdb

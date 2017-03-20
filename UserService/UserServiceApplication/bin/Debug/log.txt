@@ -1,0 +1,83 @@
+2017-03-20 17:14:53.7139|New user service was created.  Domain: 0002:Master
+2017-03-20 17:14:54.9988|New user service was created.  Domain: 0003:Slave
+2017-03-20 17:14:56.9712|New user service was created.  Domain: 0004:Slave
+2017-03-20 17:14:57.0442|A new user with ID = 1 was added.  Domain: 0002:Master
+2017-03-20 17:14:57.1053|A new user with ID = 1 was added.  Domain: 0003:Slave
+2017-03-20 17:14:57.1293|A new user with ID = 1 was added.  Domain: 0004:Slave
+2017-03-20 17:19:54.6437|New user service was created.  Domain: 0002:Master
+2017-03-20 17:19:55.8295|New user service was created.  Domain: 0003:Slave
+2017-03-20 17:19:57.4497|New user service was created.  Domain: 0004:Slave
+2017-03-20 17:19:57.5197|A new user with ID = 1 was added.  Domain: 0002:Master
+2017-03-20 17:19:57.6058|A new user with ID = 1 was added.  Domain: 0003:Slave
+2017-03-20 17:19:57.6068|A new user with ID = 2 was added.  Domain: 0002:Master
+2017-03-20 17:19:57.6068|A new user with ID = 3 was added.  Domain: 0002:Master
+2017-03-20 17:19:57.6188|A new user with ID = 2 was added.  Domain: 0003:Slave
+2017-03-20 17:19:57.6188|A new user with ID = 3 was added.  Domain: 0003:Slave
+2017-03-20 17:19:57.6368|A new user with ID = 1 was added.  Domain: 0004:Slave
+2017-03-20 17:19:57.6508|A new user with ID = 2 was added.  Domain: 0004:Slave
+2017-03-20 17:19:57.6508|A new user with ID = 3 was added.  Domain: 0004:Slave
+2017-03-20 17:19:58.2542|Error saving service state.Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". UserServiceLibrary.Exceptions.UserServiceException: Error saving service state. ---> System.InvalidOperationException: Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". ---> System.InvalidOperationException: Не удается сериализовать член "UserServiceLibrary.UserServiceStorage.UserCollection" типа "System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]". Дополнительные сведения см. во внутреннем исключении. ---> System.NotSupportedException: Невозможно сериализовать член UserServiceLibrary.UserServiceStorage.UserCollection типа System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], т.к. он является интерфейсом.
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.StructModel.CheckSupportedMember(TypeDesc typeDesc, MemberInfo member, Type type)
+   в System.Xml.Serialization.StructModel.GetPropertyModel(PropertyInfo propertyInfo)
+   в System.Xml.Serialization.StructModel.GetFieldModel(MemberInfo memberInfo)
+   в System.Xml.Serialization.XmlReflectionImporter.InitializeStructMembers(StructMapping mapping, StructModel model, Boolean openModel, String typeName, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportStructLikeMapping(StructModel model, String ns, Boolean openModel, XmlAttributes a, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportElement(TypeModel model, XmlRootAttribute root, String defaultNamespace, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   в System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   в UserServiceLibrary.UserServiceStorageSerializer.Serialize(UserServiceStorage userServiceStorage) в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserServiceStorageSerializer.cs:строка 31
+   в UserServiceLibrary.UserService.SaveState() в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserService.cs:строка 390
+   --- Конец трассировки внутреннего стека исключений --- Domain: 0002:Master
+2017-03-20 17:19:58.2542|Error saving service state.Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". UserServiceLibrary.Exceptions.UserServiceException: Error saving service state. ---> System.InvalidOperationException: Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". ---> System.InvalidOperationException: Не удается сериализовать член "UserServiceLibrary.UserServiceStorage.UserCollection" типа "System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]". Дополнительные сведения см. во внутреннем исключении. ---> System.NotSupportedException: Невозможно сериализовать член UserServiceLibrary.UserServiceStorage.UserCollection типа System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], т.к. он является интерфейсом.
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.StructModel.CheckSupportedMember(TypeDesc typeDesc, MemberInfo member, Type type)
+   в System.Xml.Serialization.StructModel.GetPropertyModel(PropertyInfo propertyInfo)
+   в System.Xml.Serialization.StructModel.GetFieldModel(MemberInfo memberInfo)
+   в System.Xml.Serialization.XmlReflectionImporter.InitializeStructMembers(StructMapping mapping, StructModel model, Boolean openModel, String typeName, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportStructLikeMapping(StructModel model, String ns, Boolean openModel, XmlAttributes a, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportElement(TypeModel model, XmlRootAttribute root, String defaultNamespace, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   в System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   в UserServiceLibrary.UserServiceStorageSerializer.Serialize(UserServiceStorage userServiceStorage) в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserServiceStorageSerializer.cs:строка 31
+   в UserServiceLibrary.UserService.SaveState() в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserService.cs:строка 390
+   --- Конец трассировки внутреннего стека исключений --- Domain: 0002:Master
+2017-03-20 17:19:58.2542|Error saving service state.Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". UserServiceLibrary.Exceptions.UserServiceException: Error saving service state. ---> System.InvalidOperationException: Возникла ошибка при отражении типа "UserServiceLibrary.UserServiceStorage". ---> System.InvalidOperationException: Не удается сериализовать член "UserServiceLibrary.UserServiceStorage.UserCollection" типа "System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]". Дополнительные сведения см. во внутреннем исключении. ---> System.NotSupportedException: Невозможно сериализовать член UserServiceLibrary.UserServiceStorage.UserCollection типа System.Collections.Generic.ICollection`1[[UserServiceLibrary.User, UserServiceLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], т.к. он является интерфейсом.
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.StructModel.CheckSupportedMember(TypeDesc typeDesc, MemberInfo member, Type type)
+   в System.Xml.Serialization.StructModel.GetPropertyModel(PropertyInfo propertyInfo)
+   в System.Xml.Serialization.StructModel.GetFieldModel(MemberInfo memberInfo)
+   в System.Xml.Serialization.XmlReflectionImporter.InitializeStructMembers(StructMapping mapping, StructModel model, Boolean openModel, String typeName, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportStructLikeMapping(StructModel model, String ns, Boolean openModel, XmlAttributes a, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportElement(TypeModel model, XmlRootAttribute root, String defaultNamespace, RecursionLimiter limiter)
+   в System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   в System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   в UserServiceLibrary.UserServiceStorageSerializer.Serialize(UserServiceStorage userServiceStorage) в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserServiceStorageSerializer.cs:строка 31
+   в UserServiceLibrary.UserService.SaveState() в C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\UserService.cs:строка 390
+   --- Конец трассировки внутреннего стека исключений --- Domain: 0002:Master
+2017-03-20 17:36:27.0709|New user service was created.  Domain: 0002:Master
+2017-03-20 17:36:28.9993|New user service was created.  Domain: 0003:Slave
+2017-03-20 17:36:29.8689|New user service was created.  Domain: 0004:Slave
+2017-03-20 17:36:29.9439|A new user with ID = 1 was added.  Domain: 0002:Master
+2017-03-20 17:36:30.0330|A new user with ID = 2 was added.  Domain: 0002:Master
+2017-03-20 17:36:30.0380|A new user with ID = 1 was added.  Domain: 0003:Slave
+2017-03-20 17:36:30.0380|A new user with ID = 3 was added.  Domain: 0002:Master
+2017-03-20 17:36:30.1261|A new user with ID = 2 was added.  Domain: 0003:Slave
+2017-03-20 17:36:30.1261|A new user with ID = 3 was added.  Domain: 0003:Slave
+2017-03-20 17:36:30.1401|A new user with ID = 1 was added.  Domain: 0004:Slave
+2017-03-20 17:36:30.1531|A new user with ID = 2 was added.  Domain: 0004:Slave
+2017-03-20 17:36:30.1531|A new user with ID = 3 was added.  Domain: 0004:Slave
+2017-03-20 17:39:02.9717|New user service was created.  Domain: 0002:Master
+2017-03-20 17:39:04.4287|New user service was created.  Domain: 0003:Slave
+2017-03-20 17:39:05.5345|New user service was created.  Domain: 0004:Slave
+2017-03-20 17:39:06.5132|Storage was restored  Domain: 0003:Slave
+2017-03-20 17:39:06.5392|Storage was restored  Domain: 0004:Slave

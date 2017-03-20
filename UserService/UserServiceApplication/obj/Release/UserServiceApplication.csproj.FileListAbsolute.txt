@@ -1,0 +1,13 @@
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\UserServiceApplication.exe.config
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\NLog.config
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\UserServiceApplication.exe
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\UserServiceApplication.pdb
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\UserServiceLibrary.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\Logger.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\NLog.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\UserServiceLibrary.pdb
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\Logger.pdb
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\bin\Release\NLog.xml
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\obj\Release\UserServiceApplication.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\obj\Release\UserServiceApplication.exe
+C:\Users\ASUS\Desktop\UserService\UserServiceApplication\obj\Release\UserServiceApplication.pdb

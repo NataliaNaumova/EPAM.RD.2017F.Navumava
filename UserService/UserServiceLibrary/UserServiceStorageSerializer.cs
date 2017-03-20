@@ -9,6 +9,10 @@ using UserServiceLibrary.Interfaces;
 
 namespace UserServiceLibrary
 {
+    /// <summary>
+    /// Provides methods for working with persistent user storage.
+    /// </summary>
+    [Serializable]
     public class UserServiceStorageSerializer : IUserServiceStorageSerializer
     {
         #region Constants
@@ -19,6 +23,10 @@ namespace UserServiceLibrary
 
         #region Public Methods
 
+        /// <summary>
+        /// Serializes an instance of a UserServiceStorage class to a persistent storage.
+        /// </summary>
+        /// <param name="userServiceStorage">An instance of a UserServiceStorage class to serialize.</param>
         public void Serialize(UserServiceStorage userServiceStorage)
         {
             if (userServiceStorage == null)
@@ -34,6 +42,12 @@ namespace UserServiceLibrary
             }
         }
 
+
+        /// <summary>
+        /// Deserializes an instance of a UserServiceStorage class from a persistent storage.
+        /// </summary>
+        /// <returns>An instance of a UserServiceStorage class deserialized  from a persistent storage.
+        /// </returns>
         public UserServiceStorage Deserialize()
         {
             string fileName = UserServiceStorageSettings.Settings.FileName;

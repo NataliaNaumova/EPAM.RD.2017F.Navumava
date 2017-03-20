@@ -61,12 +61,17 @@
     <Compile Include="UserServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{f114f7f0-c1a9-42a5-9eca-c0c81fc63fc3}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserServiceLibrary\UserServiceLibrary.csproj">
       <Project>{d940e03a-54ad-459e-93d0-b647c6be9591}</Project>
       <Name>UserServiceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

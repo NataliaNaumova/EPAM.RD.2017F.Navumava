@@ -1,0 +1,10 @@
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\NLog.config
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\UserServiceLibrary.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\UserServiceLibrary.pdb
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\Logger.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\NLog.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\Logger.pdb
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\bin\Release\NLog.xml
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\obj\Release\UserServiceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\obj\Release\UserServiceLibrary.dll
+C:\Users\ASUS\Desktop\UserService\UserServiceLibrary\obj\Release\UserServiceLibrary.pdb

@@ -3324,7 +3324,7 @@
         <member name="M:Moq.Mock`1.#ctor(System.Object[])">
             <summary>
 			Initializes an instance of the mock with <see cref="F:Moq.MockBehavior.Default">default behavior</see> and with
-			the given constructor arguments for the class. (Only valid when <typeparamref name="T" /> is a class)
+			the given constructor arguments for the class. (Only valid when T is a class)
 		</summary><remarks>
 			The mock will try to find the best match constructor given the constructor arguments, and invoke that
 			to initialize the instance. This applies only for classes, not interfaces.
@@ -3375,7 +3375,7 @@
         </member>
         <member name="M:Moq.Mock`1.Setup(System.Linq.Expressions.Expression{System.Action{`0}})">
             <summary>
-			Specifies a setup on the mocked type for a call to
+			Specifies a setup on the mocked type for a call
 			to a void method.
 		</summary><remarks>
 			If more than one setup is specified for the same method or property,
@@ -5729,13 +5729,13 @@
             <summary>Branch: master</summary>
         </member>
         <member name="F:ThisAssembly.Git.Commit">
-            <summary>Commit: 195219e</summary>
+            <summary>Commit: b776fc2</summary>
         </member>
         <member name="F:ThisAssembly.Git.Sha">
-            <summary>Sha: 195219e923e744922212e86301ecfb624635a451</summary>
+            <summary>Sha: b776fc2216a591427f4ffe9d3453eeebf9581b3d</summary>
         </member>
         <member name="F:ThisAssembly.Git.Commits">
-            <summary>Commits on top of base version: 30</summary>
+            <summary>Commits on top of base version: 1</summary>
         </member>
         <member name="F:ThisAssembly.Git.Tag">
             <summary>Tag: </summary>
@@ -5750,7 +5750,7 @@
             <summary>Major: 4</summary>
         </member>
         <member name="F:ThisAssembly.Git.BaseVersion.Minor">
-            <summary>Minor: 5</summary>
+            <summary>Minor: 7</summary>
         </member>
         <member name="F:ThisAssembly.Git.BaseVersion.Patch">
             <summary>Patch: 0</summary>
@@ -5762,10 +5762,10 @@
             <summary>Major: 4</summary>
         </member>
         <member name="F:ThisAssembly.Git.SemVer.Minor">
-            <summary>Minor: 5</summary>
+            <summary>Minor: 7</summary>
         </member>
         <member name="F:ThisAssembly.Git.SemVer.Patch">
-            <summary>Patch: 30</summary>
+            <summary>Patch: 1</summary>
         </member>
         <member name="F:ThisAssembly.Git.SemVer.Label">
             <summary>Label: </summary>

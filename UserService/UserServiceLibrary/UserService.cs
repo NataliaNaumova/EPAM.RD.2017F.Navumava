@@ -14,7 +14,12 @@ using UserServiceLibrary.Interfaces;
 
 namespace UserServiceLibrary
 {
-    public class UserService : IUserService
+    /// <summary>
+    /// Represents a user service that allows to perform read and write operations on user storage.
+    /// Allows working in master and slave mode.
+    /// </summary>
+    [Serializable]
+    public class UserService : MarshalByRefObject, IUserService
     {
         #region Constants and Fields
 
@@ -29,13 +34,15 @@ namespace UserServiceLibrary
         private readonly ReaderWriterLockSlim _rwLockSlim;
         private readonly IPEndPoint _ipEndPoint;
         private bool _isMaster;
-        private readonly Thread _listener;
         private readonly ManualResetEventSlim _suspendSlaveListenerEvent;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Gets or sets value indicating whether service is master.
+        /// </summary>
         public bool IsMaster
         {
             get { return _isMaster; }
@@ -63,91 +70,72 @@ namespace UserServiceLibrary
 
         #region Constructors
 
-        internal UserService(IPEndPoint ipEndPoint) : this(false, ipEndPoint, null, null, null, null)
+        /// <summary>
+        /// Initializes a new service instance in a slave mode.
+        /// </summary>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        public UserService(IPEndPoint ipEndPoint) : this(false, ipEndPoint, null, null, null, null)
         {
         }
 
-        internal UserService(bool isMaster, IPEndPoint ipEndPoint) : this(isMaster, ipEndPoint, null, null, null, null)
+        /// <summary>
+        /// Initializes a new service instance.
+        /// </summary>
+        /// <param name="isMaster">Indicates whether service is in master mode.</param>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        public UserService(bool isMaster, IPEndPoint ipEndPoint) : this(isMaster, ipEndPoint, null, null, null, null)
         {
         }
 
-        internal UserService(IPEndPoint ipEndPoint, ILogger logger) 
+        /// <summary>
+        /// Initializes a new service instance in a slave mode.
+        /// </summary>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        /// <param name="logger">Logger instance. If value is null - the default logger instance is used.</param>
+        public UserService(IPEndPoint ipEndPoint, ILogger logger) 
             : this(false, ipEndPoint, logger, null, null, null)
         {
         }
 
-        internal UserService(IPEndPoint ipEndPoint,
-            IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(false, ipEndPoint, null, null, userServiceStorageSerializer, null)
-        {
-        }
 
-        internal UserService(IPEndPoint ipEndPoint, ILogger logger, 
-            IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(false, ipEndPoint, logger, null, userServiceStorageSerializer, null)
-        {
-        }
-        internal UserService(IPEndPoint ipEndPoint, IUserValidator userValidator) 
-            : this(false, ipEndPoint, null, userValidator, null, null)
-        {
-        }
 
-        internal UserService(IPEndPoint ipEndPoint, IUserValidator userValidator,
-            IUserServiceStorageSerializer userServiceStorageSerializer) 
-            : this(false, ipEndPoint, null, userValidator, userServiceStorageSerializer, null)
-        {
-        }
-
-        internal UserService(IPEndPoint ipEndPoint, ILogger logger, IUserValidator userValidator)
-            : this(false, ipEndPoint, logger, userValidator, null, null)
-        {
-        }
-
+        /// <summary>
+        /// Initializes a new service instance in a slave mode.
+        /// </summary>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        /// <param name="logger">Logger instance. If value is null - the default logger instance is used.</param>
+        /// <param name="userValidator">An instance of a class implementing user validating API. If value is null - the default user validator instance is used.</param>
+        /// <param name="userServiceStorageSerializer">An instance of a class implementing user storage serializing API. If value is null - the default user serializer instance is used.</param>
         public UserService(IPEndPoint ipEndPoint, ILogger logger, IUserValidator userValidator, 
             IUserServiceStorageSerializer userServiceStorageSerializer)
             : this(false, ipEndPoint, logger, userValidator, userServiceStorageSerializer, null)
         {
         }
 
-        internal UserService(IPEndPoint ipEndPoint, ILogger logger,
+        /// <summary>
+        /// Initializes a new service instance in a slave mode.
+        /// </summary>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        /// <param name="logger">Logger instance. If value is null - the default logger instance is used.</param>
+        /// <param name="idGenerator">Function designed to generate user id. If value is null - the default id generating function is used.</param>
+        /// <param name="seed">Initial value for id generating function. Is optional.</param>
+        public UserService(IPEndPoint ipEndPoint, ILogger logger,
             Func<int, int> idGenerator, int seed = 0)
             : this(false, ipEndPoint, logger, null, null, idGenerator, seed)
         {
         }
 
-        internal UserService(IPEndPoint ipEndPoint, ILogger logger, 
-            IUserServiceStorageSerializer userServiceStorageSerializer,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(false, ipEndPoint, logger, null, userServiceStorageSerializer, idGenerator, seed)
-        {
-        }
-
-        internal UserService(IPEndPoint ipEndPoint, IUserValidator userValidator,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(false, ipEndPoint, null, userValidator, null, idGenerator, seed)
-        {
-        }
-
-        internal UserService(IPEndPoint ipEndPoint, IUserValidator userValidator,
-            IUserServiceStorageSerializer userServiceStorageSerializer,
-            Func<int, int> idGenerator, int seed = 0)
-            : this(false, ipEndPoint, null, userValidator, userServiceStorageSerializer, idGenerator, seed)
-        {
-        }
-
-        internal UserService(IPEndPoint ipEndPoint, Func<int, int> idGenerator, int seed = 0)
-            : this(false, ipEndPoint, null, null, null, idGenerator, seed)
-        {
-        }
-
-        internal UserService(IPEndPoint ipEndPoint, 
-            IUserServiceStorageSerializer userServiceStorageSerializer, 
-            Func<int, int> idGenerator, int seed = 0)
-            : this(false, ipEndPoint, null, null, userServiceStorageSerializer, idGenerator, seed)
-        {
-        }
-
-        internal UserService(bool isMaster, IPEndPoint ipEndPoint, 
+        /// <summary>
+        /// Initializes a new service instance.
+        /// </summary>
+        /// <param name="isMaster">Indicates whether service is in master mode.</param>
+        /// <param name="ipEndPoint">IP EndPoint of a service. Is mandatory.</param>
+        /// <param name="logger">Logger instance. If value is null - the default logger instance is used.</param>
+        /// <param name="userValidator">An instance of a class implementing user validating API. If value is null - the default user validator instance is used.</param>
+        /// <param name="userServiceStorageSerializer">An instance of a class implementing user storage serializing API. If value is null - the default user serializer instance is used.</param>
+        /// <param name="idGenerator">Function designed to generate user id. If value is null - the default id generating function is used.</param>
+        /// <param name="seed">Initial value for id generating function. Is optional.</param>
+        public UserService(bool isMaster, IPEndPoint ipEndPoint, 
             ILogger logger, IUserValidator userValidator,
             IUserServiceStorageSerializer userServiceStorageSerializer, Func<int, int> idGenerator,
             int seed = 0)
@@ -174,9 +162,9 @@ namespace UserServiceLibrary
                 CurrentId = seed,
                 UserCollection = new List<User>()
             };
+            _rwLockSlim = new ReaderWriterLockSlim();
 
-            _listener = new Thread(ListenMaster);
-            _listener.Start();
+            new Thread(ListenMaster).Start();
             _suspendSlaveListenerEvent = new ManualResetEventSlim(!_isMaster);
 
             if (LoggingSettings.Settings.IsEnabled)
@@ -189,6 +177,10 @@ namespace UserServiceLibrary
 
         #region Public Methods
 
+        /// <summary>
+        /// Add a new user to a user storage. Available only for services running in master mode.
+        /// </summary>
+        /// <param name="user">An instance of a User class to add.</param>
         public void Add(User user)
         {
             if (!_isMaster)
@@ -271,6 +263,10 @@ namespace UserServiceLibrary
             NotifySlaves(new StorageUpdateNotification {UpdateType = UpdateType.Add, User = user.Clone()});      
         }
 
+        /// <summary>
+        /// Delete a user from a user storage. Available only for services running in master mode.
+        /// </summary>
+        /// <param name="user">An instance of a User class to delete.</param>
         public void Delete(User user)
         {
             if (!_isMaster)
@@ -338,6 +334,11 @@ namespace UserServiceLibrary
             NotifySlaves(new StorageUpdateNotification { UpdateType = UpdateType.Delete, User = user.Clone() });
         }
 
+        /// <summary>
+        /// Search users by a predicate.
+        /// </summary>
+        /// <param name="predicate">Function that defines a criterion for search.</param>
+        /// <returns>Users instances that meet the criterion of search.</returns>
         public IEnumerable<User> Search(Predicate<User> predicate)
         {
             if (predicate == null)
@@ -370,6 +371,9 @@ namespace UserServiceLibrary
 
         }
 
+        /// <summary>
+        /// Save state of service to a persistent user storage. Available only for services running in master mode.
+        /// </summary>
         public void SaveState()
         {
             if (!_isMaster)
@@ -401,6 +405,9 @@ namespace UserServiceLibrary
             }
         }
 
+        /// <summary>
+        /// Load state from persistent user storage. Available only for services running in master mode.
+        /// </summary>
         public void LoadState()
         {
             if (!_isMaster)
@@ -431,10 +438,11 @@ namespace UserServiceLibrary
                 _rwLockSlim.ExitWriteLock();
             }
 
-            foreach (var user in _userServiceStorage.UserCollection)
+            NotifySlaves(new StorageUpdateNotification
             {
-                NotifySlaves(new StorageUpdateNotification { UpdateType = UpdateType.Add, User = user.Clone() });
-            }
+                UpdateType = UpdateType.Restore,
+                UserCollection = _userServiceStorage.UserCollection.Select(u => u.Clone()).ToList()
+            });
         }
 
         #endregion
@@ -516,7 +524,8 @@ namespace UserServiceLibrary
 
                                     if (LoggingSettings.Settings.IsEnabled)
                                     {
-                                        _logger.Info($"A new user with ID = {storageUpdateNotification.User.Id} was added.");
+                                        _logger.Info(
+                                            $"A new user with ID = {storageUpdateNotification.User.Id} was added.");
                                     }
                                     break;
                                 }
@@ -525,7 +534,18 @@ namespace UserServiceLibrary
                                     _userServiceStorage.UserCollection.Remove(storageUpdateNotification.User);
                                     if (LoggingSettings.Settings.IsEnabled)
                                     {
-                                        _logger.Info($"A user with ID = {storageUpdateNotification.User.Id} was deleted.");
+                                        _logger.Info(
+                                            $"A user with ID = {storageUpdateNotification.User.Id} was deleted.");
+                                    }
+                                    break;
+                                }
+                                case UpdateType.Restore:
+                                {
+                                    _userServiceStorage.UserCollection = storageUpdateNotification.UserCollection;
+                                    if (LoggingSettings.Settings.IsEnabled)
+                                    {
+                                        _logger.Info(
+                                            "Storage was restored");
                                     }
                                     break;
                                 }
