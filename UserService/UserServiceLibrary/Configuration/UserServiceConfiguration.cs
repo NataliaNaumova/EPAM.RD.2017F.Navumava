@@ -1,5 +1,4 @@
 ﻿using System.Configuration;
-using System.Security.Cryptography.X509Certificates;
 
 namespace UserServiceLibrary.Configuration
 {

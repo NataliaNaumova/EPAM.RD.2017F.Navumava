@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
-namespace UserServiceLibrary.Interfaces
+﻿namespace UserServiceLibrary.Interfaces
 {
     /// <summary>
     /// Provides methods for validating instances of the User class.

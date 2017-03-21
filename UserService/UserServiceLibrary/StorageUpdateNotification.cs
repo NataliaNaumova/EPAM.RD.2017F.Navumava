@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace UserServiceLibrary
 {
-     /// <summary>
-     /// Provides information about an update operation on user storage.
-     /// </summary>
+    /// <summary>
+    /// Provides information about an update operation on user storage.
+    /// </summary>
     [Serializable]
     public class StorageUpdateNotification
     {

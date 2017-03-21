@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UserServiceLibrary.Interfaces;
 
 namespace UserServiceLibrary
@@ -19,6 +16,11 @@ namespace UserServiceLibrary
         /// <returns>Value indicating whether user is valid.</returns>
         public bool IsValid(User user)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
             return !((user.FirstName == null)
                      || (user.LastName == null)
                      || (user.Age <= 0));

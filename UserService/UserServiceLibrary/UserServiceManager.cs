@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using Logger;
 using UserServiceLibrary.Configuration;
 using UserServiceLibrary.Interfaces;
 
 namespace UserServiceLibrary
 {
+    /// <summary>
+    /// Provides access to master and slave instances of a user service layer in non-distributed mode.
+    /// </summary>
     public class UserServiceManager 
     {
         #region Fields
@@ -47,17 +46,29 @@ namespace UserServiceLibrary
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the UserServiceManager class.
+        /// </summary>
         public UserServiceManager() : this(null, null, null, null)
         {
         }
-        
+
+        /// <summary>
+        /// Initializes a new instance of the UserServiceManager class with specified logger.
+        /// </summary>
+        /// <param name="logger">Logger for all user services.</param>
         public UserServiceManager(ILogger logger) 
             : this(logger, null, null, null)
         {
         }
 
 
-
+        /// <summary>
+        /// Initializes a new instance of the UserServiceManager class with specified logger and id generating function.
+        /// </summary>
+        /// <param name="logger">Logger for all user services.</param>
+        /// <param name="idGenerator">Id generating function.</param>
+        /// <param name="seed">Initial value for id generating function.</param>
         public UserServiceManager(ILogger logger,
             Func<int, int> idGenerator, int seed = 0)
             : this(logger, null, null, idGenerator, seed)
@@ -65,7 +76,14 @@ namespace UserServiceLibrary
         }
 
 
-
+        /// <summary>
+        /// Initializes a new instance of the UserServiceManager class with specified user validator, 
+        /// user storage serializer and id generating function. 
+        /// </summary>
+        /// <param name="userValidator">Validator for user instances.</param>
+        /// <param name="userServiceStorageSerializer">Serializer for user storage.</param>
+        /// <param name="idGenerator">Id generating function.</param>
+        /// <param name="seed">Initial value for id generating function.</param>
         public UserServiceManager(IUserValidator userValidator,
             IUserServiceStorageSerializer userServiceStorageSerializer,
             Func<int, int> idGenerator, int seed = 0)
@@ -73,7 +91,15 @@ namespace UserServiceLibrary
         {
         }
 
-
+        /// <summary>
+        /// Initializes a new instance of the UserServiceManager class with specified logger, user validator, 
+        /// user storage serializer and id generating function.
+        /// </summary>
+        /// <param name="logger">Logger for all user services.</param>
+        /// <param name="userValidator">Validator for user instances.</param>
+        /// <param name="userServiceStorageSerializer">Serializer for user storage.</param>
+        /// <param name="idGenerator">Id generating function.</param>
+        /// <param name="seed">Initial value for id generating function.</param>
         public UserServiceManager(ILogger logger, IUserValidator userValidator,
             IUserServiceStorageSerializer userServiceStorageSerializer, Func<int, int> idGenerator,
             int seed = 0)

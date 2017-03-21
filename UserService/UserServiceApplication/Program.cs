@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UserServiceLibrary;
 
 namespace UserServiceApplication
@@ -23,8 +22,6 @@ namespace UserServiceApplication
 
  //           (userServiceManager.Master as UserService).SaveState();
             
-
-
             Console.ReadLine();
 
 

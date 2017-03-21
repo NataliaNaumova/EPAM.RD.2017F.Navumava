@@ -36,5 +36,18 @@ namespace UserServiceLibrary.Configuration
         }
 
         #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Returns value that indicates whether settings are readonly or not.
+        /// </summary>
+        /// <returns>Value that indicates whether settings are readonly or not.</returns>
+        public override bool IsReadOnly()
+        {
+            return false;
+        }
+
+        #endregion
     }
 }

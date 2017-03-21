@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Xml.Serialization;
 using System.IO;
-using System.Text.RegularExpressions;
 using UserServiceLibrary.Configuration;
 using UserServiceLibrary.Interfaces;
 
@@ -35,7 +32,7 @@ namespace UserServiceLibrary
             }
             string fileName = UserServiceStorageSettings.Settings.FileName;
             CheckXmlFileName(fileName);
-            XmlSerializer formatter = new XmlSerializer(typeof (UserServiceStorage));
+            XmlSerializer formatter = new XmlSerializer(typeof(UserServiceStorage));
             using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, userServiceStorage);
@@ -70,7 +67,7 @@ namespace UserServiceLibrary
                   string.Equals(Path.GetExtension(fileName), XmlExtension, StringComparison.InvariantCultureIgnoreCase)))
             {
                 throw new InvalidOperationException("Invalid file name.");
-            }                
+            }
         }
 
         #endregion

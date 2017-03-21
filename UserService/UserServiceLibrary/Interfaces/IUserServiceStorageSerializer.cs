@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace UserServiceLibrary.Interfaces
+﻿namespace UserServiceLibrary.Interfaces
 {
     /// <summary>
     /// Provides methods for working with persistent user storage.
